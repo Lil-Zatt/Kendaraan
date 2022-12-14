@@ -1,0 +1,58 @@
+<?php
+include("../koneksi.php");
+
+if(!isset($_GET['no_polisi'])){
+     header('Location: tampil.php');
+}
+
+$no_polisi = $_GET['no_polisi'];
+$query = mysqli_query($db, "SELECT * FROM kendaraan WHERE no_polisi = '$no_polisi'");
+$data = mysqli_fetch_assoc($query);
+
+if(mysqli_num_rows($query) < 1){
+    die("data tidak ditemukan");
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Perpustakaaan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="update.php" method="post" >
+        <h1>Auto2022</h1>
+    <table>
+        <h2>Daftar Member Auto2022</h2>
+        <tr>
+            <td>No Polisi</td>
+            <td>:</td>
+            <td><input type="hidden" name="no_polisi" placeholder="masukan no.Pol" value="<?php echo $data ['no_polisi']?>" required></td>
+        </tr>
+        <tr>
+            <td>Nama Pemilik</td>
+            <td>:</td>
+            <td><input type="text" name="nama_pemilik" placeholder="masukan nama" value="<?php echo $data ['nama_pemilik']?>" required></td>
+        </tr>
+        <tr>
+            <td><label>Merk</label></td>
+            <td>:</td>
+            <td><input type="text" name="merk" placeholder="masukan merk" value="<?php echo $data ['merk']?>" required></td>
+            </tr>
+        <tr>
+            <td>Jenis Kendaraan</td>
+            <td>:</td>
+            <td><input type="text" name="jenis_kendaraan" placeholder="masukan jenis_kendaraan" value="<?php echo $data ['jenis_kendaraan']?>" required></td>
+        </tr>
+        <tr>
+            <td><button name="submit" type="submit" >Kirim</button></td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>
