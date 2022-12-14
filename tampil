@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="from.php"> (+) TAMBAH DATA </a>
+<h2>DATA ANGGOTA</h2>
+    <table border="1">
+        <tr>
+            <th>No</th>
+            <th>No Polisi</th>
+            <th>Nama Pemiik</th>
+            <th>Merk</th>
+            <th>Jenis Kendaraan</th>
+
+            <th>Aksi</th>
+        </tr>
+        <?php
+        include "../koneksi.php";
+        $no = 1;
+        $query = mysqli_query($db, "SELECT * FROM kendaraan ");
+        while($data = mysqli_fetch_array($query)){
+            ?>
+            <tr>
+                <td><?php echo $no++?></td>
+                <td><?php echo $data['no_polisi']?></td>
+                <td><?php echo $data['nama_pemilik']?></td>
+                <td><?php echo $data['merk']?></td>
+                <td><?php echo $data['jenis_kendaraan']?></td>
+
+                <td>
+                    <a href="from-update.php?id_anggota=<?php echo $data['no_polisi']?>">update</a>
+                    <a href="hapus.php?id_anggota=<?php echo $data['no_polisi']?>">hapus</a>
+                </td>
+            </tr>
+        <?php
+        }
+        ?>
+    </table>
+    
+</body>
+</html>
