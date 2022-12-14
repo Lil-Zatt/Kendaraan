@@ -1,0 +1,14 @@
+<?php
+include "../koneksi.php";
+if( isset ($_GET["no_polisi"])){
+    $no_polisi = $_GET['no_polisi'];
+
+    $hapus = mysqli_query($db, "DELETE FROM kendaraan WHERE no_polisi = '$no_polisi'");
+
+    if($hapus) {
+        header("location: tampil.php");
+    }else {
+        die("gagal menghapus...");
+    }
+}
+?>
