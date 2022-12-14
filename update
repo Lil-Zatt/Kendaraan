@@ -1,0 +1,18 @@
+<?php
+include "../koneksi.php";
+$no_polisi = $_POST['no_polisi'];
+$nama_pemilik = $_POST['nama_pemilik'];
+$merk = $_POST['merk'];
+$jenis_kendaraan = $_POST['jenis_kendaraan'];
+
+$sql = "UPDATE kendaraan SET nama_pemilik='$nama_pemilik', merk= '$merk', jenis_kendaraan='$jenis_kendaraan' WHERE no_polisi=$no_polisi";
+$query = mysqli_query($db, $sql);
+
+if($query) {
+    header('location: tampil.php');
+    // var_dump($_POST);
+}else {
+    die("gagal mengupdate...");
+    // var_dump($_POST);
+}
+?>
