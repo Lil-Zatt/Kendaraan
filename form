@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Perpustakaaan</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="simpan.php" method="post" >
+        <h1>Auto2022</h1>
+    <table>
+        <h2>Daftar Member Auto2022</h2>
+        <tr>
+            <td>No Polisi</td>
+            <td>:</td>
+            <td><input type="number" name="no_polisi" placeholder="masukan no.Pol"></td>
+        </tr>
+        <tr>
+            <td>Nama Pemilik</td>
+            <td>:</td>
+            <td><input type="text" name="nama_pemilik" placeholder="masukan nama pemilik"></td>
+        </tr>
+        <tr>
+            <td><label>Merk</label></td>
+            <td>:</td>
+            <td><input type="text" name="merk"placeholder="masukan merk"></td>
+            </tr>
+        <tr>
+            <td>Jenis Kendaraan</td>
+            <td>:</td>
+            <td><input type="text" name="jenis_kendaraan"></td>
+        </tr>
+        <tr>
+            <td><button name="submit" type="submit">Kirim</button></td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>
