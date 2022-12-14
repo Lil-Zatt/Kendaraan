@@ -1,0 +1,12 @@
+<?php
+include "../koneksi.php";
+$no_polisi=$_POST['no_polisi'];
+$nama_pemilik=$_POST['nama_pemiik'];
+$merk=$_POST['merk'];
+$jenis_kendaraan=$_POST['jenis_kendaraan'];
+$simpan= mysqli_query ($db, "insert into kendaraan values ('$no_polisi','$nama_pemilik','$merk','$jenis_kendaraan')");
+
+if($simpan){
+    include "tampil.php";
+}
+?>
